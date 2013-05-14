@@ -1,19 +1,19 @@
 // Daniel Reyes
-// ASDI 1304
-// javaScript for GPeS app
+// ASDI 1305
+// javaScript for Mobile Menu app
 
 $(document).on('pageinit', function (){
 
 	
 	
 	
-
+});
 // Store form values to Local Storage.
 	
-$('#surveyInfo').on('pageinit', function(){
-
+$('#fillInfo').on('pageinit', function(e){
+	e.preventDefault();
 	function validateInfo(key){
-		var myForm = $('#fillSurvey');
+		var myForm = $('#fillInfo');
 		    myForm.validate({
 			invalidHandler: function(form, validator){
 			},
@@ -24,12 +24,20 @@ $('#surveyInfo').on('pageinit', function(){
 		})
 	};
 	
-	$('#submit').on('click', function(){
+	$('#submit').on('click', function(e){
 		validateInfo();
+		e.preventDefault();
 	});
 	
-	$('#reset').on('click', function(){
-		localStorage.clear()
+	$('#reset').on('click', function(e){
+		localStorage.clear();
+		e.preventDefault();
+	});
+	
+	$('#display').on('click', function(e){
+		showStoreValue();
+		e.preventDefault();
+		
 	});
 	
 	function storeData(data,key){
@@ -47,9 +55,9 @@ $('#surveyInfo').on('pageinit', function(){
 		item.lname = ["Last Name:", $('#lname').val()];
 		item.gender = ["Gender:", getRadio()];
 		item.date = ["Date:", $('#date').val()];
-		item.rating = ["Rating:", $('#rating').val()];
-		item.callback = ["Callback:", $('#callback').val()];
-		localStorage.setItem(id, JSON.stringify(item));
+		item.rating = ["Amount:", $('#amount').val()];
+		item.callback = ["Take-Out:", $('#takeOut').val()];
+		localStorage.storeItem(id, JSON.stringify(item));
 		alert("Information Saved!");
 	};
 
@@ -64,8 +72,8 @@ $('#surveyInfo').on('pageinit', function(){
 	}	
 });
 // Show stored values from Local Storage
-$('#survey').on('pageinit', function (){
-	
+$('#fillInfo').on('pageinit', function (){
+
 	function showStoreValue(){
 		if(localStorage.length === 0){
 			alert("There is no data in local storage");
@@ -73,35 +81,33 @@ $('#survey').on('pageinit', function (){
 		}
 	
 	}
-	//$('<div></div>').addClass("info").appendTo('#survey');
-	//$('#survey div').html('<ul></ul>');
+	
+	
 	for(var i=0, len=localStorage.length; i<len;i++){
-	//$('#survey div ul').html('<li></li>');
+
 	
 	var key = localStorage.key(i);
 	var value = localStorage.getItem(key);
 	var obj = JSON.parse(value);
-	//$('#survey div ul li').html('<ul></ul>');
 	
-	for(var n in obj){
-		//$('#survey div ul li ul').html('<li></li>');
+	
+	for(var n in obj){		
 		var optSubText = obj[n][0]+" "+obj[n][1];
-		$('#survey').append('optSubText' + "<br />");
+		$('#display').html('optSubText');
 		
 	}
 		
-	}
+	};
 	
 	//Auto Populate Local Storage
-	function autoFillData(){
+	/*function autoFillData(){
 	//The actual JSON OBJECT data required for this to work is coming from our json.js file which is loaded from our HTML page.
 	//Store JSON OBJECT into local storage.
 		for(var n in json){
 			var id = Math.floor(Math.random()*100000001);
 			localStorage.setItem(id, JSON.stringify(json[n]));
 		}
-	}
+	}*/
 	
 });
 
-});

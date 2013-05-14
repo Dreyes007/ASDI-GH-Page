@@ -47,10 +47,10 @@
 				
 				<div>
 					<ul data-role="listview" data-ajax="true" data-inset="true">
-						<li><a href="#error">Browse Stores</a></li>
+						<li><a href="#order">Browse Placed Orders</a></li>
 						<li><a href="#error">See Offers</a></li>
 						<li><a href="#error">Find a Location</a></li>
-						<li><a href="#survey">Browse Menu</a></li>		
+						<li><a href="#error">Browse Menu</a></li>		
 					</ul>
 					
 				</div>
@@ -70,7 +70,7 @@
 		</section>
 			
 		<!-- This is where the stored information will be displayed -->	
-		<section data-role="page" id="Order" class="storage">
+		<section data-role="page" id="order" class="storage">
 			
 			
 		</section>	
@@ -123,9 +123,9 @@
 				<!--Date Select Menu-->
 				<section data-role="fieldcontain">
 					
-					<fieldset data-role="controlgroup" name="date" data-type="horizontal" data-mini="true" class="required">
+					<fieldset data-role="controlgroup" name="date" id="date" data-type="horizontal" data-mini="true" class="required">
 						<legend>Date:</legend>
-						<select name="date" id="month">
+						<select name="date">
 							<option>Month</option>
 							<option value="Jan">January</option>
 							<option value="Feb">February</option>
@@ -141,7 +141,7 @@
 							<option value="Dec">December</option>
 						</select>
 						
-						<select name="date" id="day">
+						<select name="date">
 							<option>Day</option>
 							<option value="Mon">Monday</option>
 							<option value="Tue">Tuesday</option>
@@ -152,7 +152,7 @@
 							<option value="Sun">Sunday</option>
 						</select>
 						
-						<select name="date" id="time">
+						<select name="date">
 							<option>Time</option>
 							<option value="11am">11:00 am</option>
 							<option value="12pm">12:00 pm</option>
@@ -174,13 +174,13 @@
 				<!--Slider for Service-->
 				<section data-role="fieldcontain">
 					<label for="slider-1">How many orders:</label>
-					<input type="range" name="rating" id="rating" value="5" min="1" max="5" data-highlight="true" data-popup-enable="true" />
+					<input type="range" name="amount" id="amount" value="5" min="1" max="5" data-highlight="true" data-popup-enable="true" />
 				</section>
 				
 				<!--Call Back Flip Toggle Switch-->
 				<section data-role="fieldcontain">
 					<label for="flip-1">Take Out?:</label>
-						<select name="flip-1" id="callback" data-role="slider">
+						<select name="flip-1" id="takeOut" data-role="slider">
 							<option value="yes">YES</option>
 							<option value="no">NO</option>
 						</select>
