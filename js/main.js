@@ -27,6 +27,7 @@ $('#fillInfo').on('pageinit', function(e){
 	$('#submit').on('click', function(e){
 		validateInfo();
 		e.preventDefault();
+		console.log("Hey!")
 	});
 	
 	$('#reset').on('click', function(e){
@@ -53,7 +54,7 @@ $('#fillInfo').on('pageinit', function(e){
 		var item = {};
 		item.fname = ["First Name:", $('#fname').val()];
 		item.lname = ["Last Name:", $('#lname').val()];
-		item.gender = ["Gender:", getRadio()];
+		item.gender = ["Gender:", $('input:checked').val()];
 		item.date = ["Date:", $('#date').val()];
 		item.rating = ["Amount:", $('#amount').val()];
 		item.callback = ["Take-Out:", $('#takeOut').val()];
@@ -61,15 +62,6 @@ $('#fillInfo').on('pageinit', function(e){
 		alert("Information Saved!");
 	};
 
-	
-	function getRadio(){
-		var radios = document.forms[0].gender;
-		for(var i=0; i<radios.length; i++){
-			if(radios[i].checked){
-				gValue = radios[i].value;
-			}
-		}	
-	}	
 });
 // Show stored values from Local Storage
 $('#fillInfo').on('pageinit', function (){
