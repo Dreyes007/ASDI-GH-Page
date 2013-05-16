@@ -47,7 +47,7 @@
 				
 				<div>
 					<ul data-role="listview" data-ajax="true" data-inset="true">
-						<li><a href="#order">Browse Placed Orders</a></li>
+						<li><a href="#display">Browse Placed Orders</a></li>
 						<li><a href="#error">See Offers</a></li>
 						<li><a href="#error">Find a Location</a></li>
 						<li><a href="#error">Browse Menu</a></li>		
@@ -70,7 +70,9 @@
 		</section>
 			
 		<!-- This is where the stored information will be displayed -->	
-		<section data-role="page" id="order" class="storage">
+		<section data-role="page" id="display" class="storage">
+		
+			<p></p>
 			
 			
 		</section>	
@@ -93,7 +95,7 @@
 				<h1>Order Info</h1>				
 			</header>
 			
-			<form action="#" id="fillInfo">
+			<form action="" id="fillInfo">
 				
 					<section data-role="fieldcontain">
 						<label for="fname">*First Name:</label>
@@ -110,20 +112,20 @@
 				<!--Gender Radio Buttons-->
 					<fieldset  data-role="controlgroup" data-mini="true">
 						<legend>Gender:</legend>						
-							<input type="radio" name="gender" id="radio-choice-1" value="choice-1" checked="checked" />
+							<input type="radio" name="gender" id="radio-choice-1" value="Male" checked="checked" />
 							<label for="radio-choice-1">Male</label>
 						
-							<input type="radio" name="gender" id="radio-choice-2" value="choice-2" />
+							<input type="radio" name="gender" id="radio-choice-2" value="Female" />
 							<label for="radio-choice-2">Female</label>
 						
-							<input type="radio" name="gender" id="radio-choice-3" value="choice-3" />
+							<input type="radio" name="gender" id="radio-choice-3" value="Undecided" />
 							<label for="radio-choice-3">Undecided</label>					
 					</fieldset>
 					
 				<!--Date Select Menu-->
 				<section data-role="fieldcontain">
 					
-					<fieldset data-role="controlgroup" name="date" id="date" data-type="horizontal" data-mini="true" class="required">
+					<fieldset data-role="controlgroup" name="date" id="time" data-type="horizontal" data-mini="true" class="required">
 						<legend>Date:</legend>
 						<select name="date">
 							<option>Month</option>

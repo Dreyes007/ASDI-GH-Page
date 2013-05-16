@@ -10,13 +10,12 @@ $(document).on('pageinit', function (){
 });
 // Store form values to Local Storage.
 	
-$('#fillInfo').on('pageinit', function(e){
+$('#orderInfo').on('pageinit', function(e){
 	e.preventDefault();
 	function validateInfo(key){
-		var myForm = $('#fillInfo');
+		var myForm = $('form');
 		    myForm.validate({
-			invalidHandler: function(form, validator){
-			},
+			invalidHandler: function(form, validator){},
 			submitHandler: function() {
 		var data = myForm.serializeArray();
 			storeData(data,key);
@@ -24,20 +23,19 @@ $('#fillInfo').on('pageinit', function(e){
 		})
 	};
 	
-	$('#submit').on('click', function(e){
+	$('#submit').on('click', function(){
 		validateInfo();
-		e.preventDefault();
-		console.log("Hey!")
+		
 	});
 	
-	$('#reset').on('click', function(e){
+	$('#reset').on('click', function(){
 		localStorage.clear();
-		e.preventDefault();
 	});
 	
 	$('#display').on('click', function(e){
 		showStoreValue();
 		e.preventDefault();
+		
 		
 	});
 	
@@ -55,41 +53,38 @@ $('#fillInfo').on('pageinit', function(e){
 		item.fname = ["First Name:", $('#fname').val()];
 		item.lname = ["Last Name:", $('#lname').val()];
 		item.gender = ["Gender:", $('input:checked').val()];
-		item.date = ["Date:", $('#date').val()];
+		item.date = ["Date:", $('#time').val()];
 		item.rating = ["Amount:", $('#amount').val()];
 		item.callback = ["Take-Out:", $('#takeOut').val()];
-		localStorage.storeItem(id, JSON.stringify(item));
+		localStorage.setItem(id, JSON.stringify(item));
 		alert("Information Saved!");
 	};
-
+		console.log("test!");
 });
 // Show stored values from Local Storage
-$('#fillInfo').on('pageinit', function (){
+$('#display').on('pageinit', function (){
 
 	function showStoreValue(){
 		if(localStorage.length === 0){
 			alert("There is no data in local storage");
-			autoFillData()
 		}
-	
-	}
-	
-	
-	for(var i=0, len=localStorage.length; i<len;i++){
+	};
+		for(var i=0, len=localStorage.length; i<len;i++){
 
 	
-	var key = localStorage.key(i);
-	var value = localStorage.getItem(key);
-	var obj = JSON.parse(value);
+			var key = localStorage.key(i);
+			var value = localStorage.getItem(key);
+			var obj = JSON.parse(value);
 	
 	
-	for(var n in obj){		
-		var optSubText = obj[n][0]+" "+obj[n][1];
-		$('#display').html('optSubText');
-		
-	}
-		
-	};
+			for(var n in obj){		
+				var optSubText = obj[n][0] +" "+ obj[n][1];
+				$('#display').append(optSubText + " " + "<br />");
+						
+				}
+			
+		};
+	
 	
 	//Auto Populate Local Storage
 	/*function autoFillData(){
