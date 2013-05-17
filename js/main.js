@@ -28,12 +28,10 @@ $('#orderInfo').on('pageinit', function(e){
 		
 	});
 	
-	$('#reset').on('click', function(){
-		localStorage.clear();
-	});
+
 	
 	$('#display').on('click', function(e){
-		showStoreValue();
+		getData();
 		e.preventDefault();
 		
 		
@@ -53,23 +51,26 @@ $('#orderInfo').on('pageinit', function(e){
 		item.fname = ["First Name:", $('#fname').val()];
 		item.lname = ["Last Name:", $('#lname').val()];
 		item.gender = ["Gender:", $('input:checked').val()];
-		item.date = ["Date:", $('#time').val()];
+		item.date = ["Date:", $('#date').val()];
 		item.rating = ["Amount:", $('#amount').val()];
-		item.callback = ["Take-Out:", $('#takeOut').val()];
+		item.takeOut = ["Take-Out:", $('#takeOut').val()];
 		localStorage.setItem(id, JSON.stringify(item));
 		alert("Information Saved!");
+		$.mobile.changePage("#home", null, true, true);
 	};
-		console.log("test!");
+		
+
+
 });
 // Show stored values from Local Storage
 $('#display').on('pageinit', function (){
 
-	function showStoreValue(){
+	var getData = function(){
 		if(localStorage.length === 0){
 			alert("There is no data in local storage");
 		}
 	};
-		for(var i=0, len=localStorage.length; i<len;i++){
+		for(var i=0; i < localStorage.length; i++){
 
 	
 			var key = localStorage.key(i);
@@ -80,12 +81,10 @@ $('#display').on('pageinit', function (){
 			for(var n in obj){		
 				var optSubText = obj[n][0] +" "+ obj[n][1];
 				$('#display').append(optSubText + " " + "<br />");
-						
+										
 				}
 			
 		};
-	
-	
 	//Auto Populate Local Storage
 	/*function autoFillData(){
 	//The actual JSON OBJECT data required for this to work is coming from our json.js file which is loaded from our HTML page.
@@ -95,6 +94,29 @@ $('#display').on('pageinit', function (){
 			localStorage.setItem(id, JSON.stringify(json[n]));
 		}
 	}*/
+	
+});
+
+$('#clear').on('pageinit', function (){
+	
+		$('#choice ul li:last').on('click', function(){
+			clearLocal();
+
+		
+		});
+	
+	var clearLocal = function(){
+		if(localStorage.length === 0){
+			alert("There is no data to clear.");
+			
+		}else{
+			localStorage.clear();
+			alert("All information has been deleted!");
+			window.location.reload();
+			return false;
+			$.mobile.changePage("#home", null, true, true);
+		}
+	};
 	
 });
 

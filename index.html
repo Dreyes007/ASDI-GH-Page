@@ -45,12 +45,12 @@
 					<a href="#orderInfo" id="placeOrder" type="button" data-inline="false" data-mini="true">Place Order</a>
 				</div>
 				
-				<div>
+				<div id="choice">
 					<ul data-role="listview" data-ajax="true" data-inset="true">
-						<li><a href="#display">Browse Placed Orders</a></li>
-						<li><a href="#error">See Offers</a></li>
+						<li><a href="#display">Browse Placed Orders</a></li>						
 						<li><a href="#error">Find a Location</a></li>
-						<li><a href="#error">Browse Menu</a></li>		
+						<li><a href="#error">Browse Menu</a></li>
+						<li><a href="#clear">Clear Local Storage</a></li>		
 					</ul>
 					
 				</div>
@@ -71,12 +71,18 @@
 			
 		<!-- This is where the stored information will be displayed -->	
 		<section data-role="page" id="display" class="storage">
-		
+			
 			<p></p>
-			
-			
+		
 		</section>	
-			
+		
+		<!-- This section will clear the local storage -->
+		<section data-role="page" id="clear">
+		
+		</section>
+		
+
+		
 		
 		
 		<!--This guides the browse categories to an error page for the pages that are not set up yet-->
@@ -124,53 +130,9 @@
 					
 				<!--Date Select Menu-->
 				<section data-role="fieldcontain">
-					
-					<fieldset data-role="controlgroup" name="date" id="time" data-type="horizontal" data-mini="true" class="required">
-						<legend>Date:</legend>
-						<select name="date">
-							<option>Month</option>
-							<option value="Jan">January</option>
-							<option value="Feb">February</option>
-							<option value="Mar">March</option>
-							<option value="Apr">April</option>
-							<option value="May">May</option>
-							<option value="Jun">June</option>
-							<option value="Jul">July</option>
-							<option value="Aug">August</option>
-							<option value="Sep">September</option>
-							<option value="Oct">October</option>
-							<option value="Nov">November</option>
-							<option value="Dec">December</option>
-						</select>
-						
-						<select name="date">
-							<option>Day</option>
-							<option value="Mon">Monday</option>
-							<option value="Tue">Tuesday</option>
-							<option value="Wed">Wednesday</option>
-							<option value="Thu">Thursday</option>
-							<option value="Fri">Friday</option>
-							<option value="Sat">Saturday</option>
-							<option value="Sun">Sunday</option>
-						</select>
-						
-						<select name="date">
-							<option>Time</option>
-							<option value="11am">11:00 am</option>
-							<option value="12pm">12:00 pm</option>
-							<option value="1pm">1:00 pm</option>
-							<option value="2pm">2:00 pm</option>
-							<option value="3pm">3:00 pm</option>
-							<option value="4pm">4:00 pm</option>
-							<option value="5pm">5:00 pm</option>
-							<option value="6pm">6:00 pm</option>
-							<option value="7pm">7:00 pm</option>
-							<option value="8pm">8:00 pm</option>
-							<option value="9pm">9:00 pm</option>
-							<option value="10pm">10:00 pm</option>
-							<option value="11pm">11:00 pm</option>
-						</select>
-					</fieldset>
+					<label for="date">Date:</label>
+					<input type="date" name="date" id="date" value="">
+
 				</section>
 				
 				<!--Slider for Service-->
