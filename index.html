@@ -50,7 +50,7 @@
 						<li><a href="#display">Browse Placed Orders</a></li>						
 						<li><a href="#error">Find a Location</a></li>
 						<li><a href="#error">Browse Menu</a></li>
-						<li><a href="#clear">Clear Local Storage</a></li>		
+						<li><a href="#option">Options</a></li>		
 					</ul>
 					
 				</div>
@@ -70,20 +70,33 @@
 		</section>
 			
 		<!-- This is where the stored information will be displayed -->	
-		<section data-role="page" id="display" class="storage">
+		<section data-role="page" id="display" data-add-back-btn="true">
+		
+			<header data-role="header" data-position="fixed">
+				<h1>Display</h1>				
+			</header>
+		
+				<p></p>
 			
-			<p></p>
+			
 		
 		</section>	
 		
 		<!-- This section will clear the local storage -->
-		<section data-role="page" id="clear">
+		<section data-role="page" id="option" data-add-back-btn="true">
+		
+			<header data-role="header" data-position="fixed">
+				<h1>Options</h1>				
+			</header>
+		
+			<div>
+				
+				<input type="button" id="clear" value="Clear Local Storage" />
+			
+			</div>
 		
 		</section>
-		
 
-		
-		
 		
 		<!--This guides the browse categories to an error page for the pages that are not set up yet-->
 		<section data-role="dialog" id="error">

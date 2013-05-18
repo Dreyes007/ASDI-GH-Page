@@ -57,6 +57,7 @@ $('#orderInfo').on('pageinit', function(e){
 		localStorage.setItem(id, JSON.stringify(item));
 		alert("Information Saved!");
 		$.mobile.changePage("#home", null, true, true);
+		
 	};
 		
 
@@ -97,26 +98,14 @@ $('#display').on('pageinit', function (){
 	
 });
 
-$('#clear').on('pageinit', function (){
+$('#option').on('pageinit', function (){
 	
-		$('#choice ul li:last').on('click', function(){
-			clearLocal();
-
+		$('#clear').on('click', function(){
+		localStorage.clear();
+		alert("All information has been deleted!")
+		$.mobile.changePage("#home", null, true, true);
 		
 		});
-	
-	var clearLocal = function(){
-		if(localStorage.length === 0){
-			alert("There is no data to clear.");
-			
-		}else{
-			localStorage.clear();
-			alert("All information has been deleted!");
-			window.location.reload();
-			return false;
-			$.mobile.changePage("#home", null, true, true);
-		}
-	};
-	
+
 });
 
