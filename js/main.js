@@ -86,16 +86,36 @@ $('#display').on('pageinit', function (){
 				}
 			
 		};
-	//Auto Populate Local Storage
-	/*function autoFillData(){
-	//The actual JSON OBJECT data required for this to work is coming from our json.js file which is loaded from our HTML page.
-	//Store JSON OBJECT into local storage.
-		for(var n in json){
-			var id = Math.floor(Math.random()*100000001);
-			localStorage.setItem(id, JSON.stringify(json[n]));
-		}
-	}*/
-	
+		
+		$('#display').append('<a href="#orderInfo" id="editLink">Edit</a> | <a href="#" id="deleteLink">Delete</a>');
+		
+//Edit Link
+//Grab the data from our item on local storage
+	function editItem (key){
+		var value = localStorage.getItem(this.key);
+		var item = JSON.parse(value);
+		
+//Populate form with with current local storage values.
+
+		$('#fname').val(item.fname[1]);
+		$('#lname').val(item.lname[1]);
+		$('input:checked').val(item.gender[1]);
+		$('#date').val(item.date[1]);
+		$('#takeOut').val(item.takeOut[1]);
+		
+//Remove the initial listener from the input 'Submit Order' button.
+//Change Submit Button value to Edit Button
+		$('#submit').val("Edit");
+		var submit = $("#submit");
+		
+		$('#submit').on('click', function(){
+		submit.key = this.key;
+		validateInfo(key);
+		
+		});
+		
+	};
+			
 });
 
 $('#option').on('pageinit', function (){
@@ -108,4 +128,12 @@ $('#option').on('pageinit', function (){
 		});
 
 });
-
+	//Auto Populate Local Storage
+	/*function autoFillData(){
+	//The actual JSON OBJECT data required for this to work is coming from our json.js file which is loaded from our HTML page.
+	//Store JSON OBJECT into local storage.
+		for(var n in json){
+			var id = Math.floor(Math.random()*100000001);
+			localStorage.setItem(id, JSON.stringify(json[n]));
+		}
+	}*/
