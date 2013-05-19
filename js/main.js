@@ -90,6 +90,15 @@ $('#display').on('pageinit', function (){
 		$('#display').append('<a href="#orderInfo" id="editLink">Edit</a> | <a href="#" id="deleteLink">Delete</a>');
 		
 //Edit Link
+
+//Delete Link
+
+	$('#deleteLink').on('click', function (){
+		deleteItem();
+		
+	});
+
+
 //Grab the data from our item on local storage
 	function editItem (key){
 		var value = localStorage.getItem(this.key);
@@ -114,6 +123,17 @@ $('#display').on('pageinit', function (){
 		
 		});
 		
+	};
+	
+	function deleteItem(key){
+		var ask = confirm("Are you sure you want to delete this information?");
+		if(ask){
+			localStorage.removeItem(this.key);
+			alert("Information was deleted");
+			window.location.reload();
+		}else{
+			alert("Information was NOT deleted");
+		}
 	};
 			
 });
