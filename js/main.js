@@ -2,9 +2,9 @@
 // ASDI 1305
 // javaScript for Mobile Menu app
 
-$(document).on('pageinit', function (){
+$('#home').on('pageinit', function (){
 
-	
+
 	
 	
 });
@@ -134,7 +134,7 @@ $('#display').on('pageinit', function (){
 		}else{
 			alert("Information was NOT deleted");
 		}
-	};
+	}
 			
 });
 
@@ -148,6 +148,73 @@ $('#option').on('pageinit', function (){
 		});
 
 });
+
+
+
+$('#loadJson').on('pageinit', function (){
+
+	$('#Json').on('click', function(){
+	
+		$.ajax({
+			url: 'xhr/JSON.js',
+			type: 'GET',
+			dataType: 'json',
+			success: function(data, status){
+				console.log(status, data);
+				},
+				error: function(error, parserror){
+			
+				},
+		 		
+			});
+	
+	});
+
+});
+
+$('#loadXml').on('pageinit', function (){
+
+	$('#xml').on('click', function(){
+	
+		$.ajax({
+			url: 'xhr/info.php',
+			type: 'GET',
+			dataType: 'xml',
+			success: function(data, status){
+				console.log(status, data);
+				},
+				error: function(error, parserror){
+			
+				},
+		 		
+			});
+	
+	});
+
+});
+
+$('#loadYaml').on('pageinit', function (){
+
+	$('#yaml').on('click', function(){
+	
+		$.ajax({
+			url: 'xhr/data.yml',
+			type: 'GET',
+			dataType: 'yaml',
+			success: function(data, status){
+				console.log(status, data);
+				},
+				error: function(error, parserror){
+			
+				},
+		 		
+			});
+	
+	});
+
+});
+
+
 	//Auto Populate Local Storage
 	/*function autoFillData(){
 	//The actual JSON OBJECT data required for this to work is coming from our json.js file which is loaded from our HTML page.

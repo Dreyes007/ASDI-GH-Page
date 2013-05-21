@@ -47,10 +47,12 @@
 				
 				<div id="choice">
 					<ul data-role="listview" data-ajax="true" data-inset="true">
-						<li><a href="#display">Browse Placed Orders</a></li>						
-						<li><a href="#error">Find a Location</a></li>
-						<li><a href="#error">Browse Menu</a></li>
-						<li><a href="#option">Options</a></li>		
+						<li><a href="#display">Browse Placed Orders</a></li>
+						<li><a href="#option">Options</a></li>						
+						<li><a href="#loadJson">Load Json</a></li>
+						<li><a href="#loadXml">Load XML</a></li>
+						<li><a href="#error">Load YAML</a></li>
+								
 					</ul>
 					
 				</div>
@@ -96,6 +98,58 @@
 			</div>
 		
 		</section>
+		
+		
+		<!-- This page will load Json data -->
+		<section data-role="page" id="loadJson" data-add-back-btn="true">
+		
+			<header data-role="header" data-position="fixed">
+				<h1>Json</h1>				
+			</header>
+		
+			<div>
+				
+				<input type="button" id="Json" value="Load Json Data" />
+			
+			</div>
+			
+			
+		
+		</section>
+		
+		<!-- This page will load xml data -->
+		<section data-role="page" id="loadXml" data-add-back-btn="true">
+		
+			<header data-role="header" data-position="fixed">
+				<h1>XML</h1>				
+			</header>
+		
+			<div>
+				
+				<input type="button" id="xml" value="Load XML Data" />
+			
+			</div>
+			
+			
+		
+		</section>	
+		
+		<!-- This page will load yaml data -->
+		<section data-role="page" id="loadYaml" data-add-back-btn="true">
+		
+			<header data-role="header" data-position="fixed">
+				<h1>YAML</h1>				
+			</header>
+		
+			<div>
+				
+				<input type="button" id="yaml" value="Load YAML Data" />
+			
+			</div>
+			
+			
+		
+		</section>		
 
 		
 		<!--This guides the browse categories to an error page for the pages that are not set up yet-->
